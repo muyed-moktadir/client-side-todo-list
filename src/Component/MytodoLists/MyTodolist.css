@@ -1,0 +1,14 @@
+.item-wrapper{
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+}
+.button-wrapper{
+    position: absolute;
+    top: 2px;
+    right: 10px;
+}
+.item-title{
+    padding-right: 40px;
+}

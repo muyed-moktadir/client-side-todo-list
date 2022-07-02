@@ -5,7 +5,7 @@ const MyTodoLists = () => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/myTodoList")
+    fetch("https://vast-mesa-84513.herokuapp.com/myTodoList")
       .then((res) => res.json())
       .then((data) => setTodos(data));
   }, []);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash ,faCheck,faEdit} from "@fortawesome/free-solid-svg-icons";
 import './MyTodolist.css'
 const MyTodolist = ({ todo }) => {
     const { _id,name } = todo;
@@ -8,7 +8,7 @@ const MyTodolist = ({ todo }) => {
 
     // TODO:Load all bikes from (app.get) api:
     useEffect(() => {
-      fetch("http://localhost:5000/myTodoList")
+      fetch("https://vast-mesa-84513.herokuapp.com/myTodoList")
         .then((res) => res.json())
         .then((data) => settodosLists(data));
     }, []);
@@ -17,7 +17,7 @@ const MyTodolist = ({ todo }) => {
         const proceed = window.confirm("are you sure want to delete??");
         if (proceed) {
           console.log("deleting the id", id);
-          const url = `http://localhost:5000/myTodoList/${_id}`;
+          const url = `https://vast-mesa-84513.herokuapp.com/myTodoList/${_id}`;
           fetch(url, {
             method: "DELETE",
           })
@@ -25,12 +25,12 @@ const MyTodolist = ({ todo }) => {
             .then((data) => {
               if (todoLists.deletedCount > 0) {
                 console.log("delete successfully");
-                const remaining = todoLists.filter((bike) => bike._id !== id);
+                const remaining = todoLists.filter((todoList) => todoList._id !== id);
                 settodosLists(remaining);
               }
             console.log(data);
             });
-          window.location.reload();
+        //   window.location.reload();
         }
       else{
       }
@@ -44,6 +44,14 @@ const MyTodolist = ({ todo }) => {
             <button className="btn btn-outline btn-error ml-4" onClick={()=>handleTodoDelete(_id)}>
             <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>{" "}
             </button> 
+            <button className="btn btn-outline btn-error ml-4" onClick={()=>handleTodoCheck(_id)}>
+            <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>{" "}
+            </button> 
+            <button className="btn btn-outline btn-error ml-4" onClick={()=>handleTodoEdit(_id)}>
+            <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>{" "}
+            </button> 
+
+            
         </div>
       </div>
     </div>

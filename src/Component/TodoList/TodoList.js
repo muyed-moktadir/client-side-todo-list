@@ -14,7 +14,7 @@ const TodoList = () => {
     console.log(name);
 
     // // TODO:send the user post method to backend server
-    fetch("http://localhost:5000/myTodoList", {
+    fetch("https://vast-mesa-84513.herokuapp.com/myTodoList", {
       method: "POST",
       headers: {
         "content-type": "application/json",

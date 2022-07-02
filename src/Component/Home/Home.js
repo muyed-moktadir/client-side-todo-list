@@ -5,7 +5,7 @@ import TodoList from '../TodoList/TodoList';
 
 const Home = () => {
     return (
-        <div>
+        <div className='h-screen'>
         <MyTodoLists></MyTodoLists>
         </div>
     );
